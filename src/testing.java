@@ -1,9 +1,10 @@
 public class testing {
 
-    static int[] arr = {2,5,1,8,3,45,1,2,7};
+    static int[] arr = {10,9,8,7,2,45,2,3,4,8,20};
 
     public static void main(String[] args) {
-        bubbleSort(3, 8);
+        //bubbleSort(3, 8);
+        insertionSort(1, 4);
         for (int num : arr) {
             System.out.print(num + ", ");
         }
@@ -24,8 +25,15 @@ public class testing {
 
     public static void insertionSort(int start, int stop) {
         for (int i = start+1; i < stop; i++) {
-            int temp = arr[i];
 
+            int key = arr[i];
+            int j = i - 1;
+
+            while (j >= start && arr[j] > key) {
+                arr[j+1] = arr[j];
+                j--;
+            }
+            arr[j+1] = key;
         }
     }
 
